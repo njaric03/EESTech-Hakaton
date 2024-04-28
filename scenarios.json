@@ -1,0 +1,21 @@
+{
+    "1": {
+      "description": "You are a second-year Computer Science student applying for an entry-level software engineering position at a reputable tech company. Over the past year, you've built a solid foundation in programming through academic projects, personal exploration, and an internship at a startup. Your experience includes proficiency in Java and Python, along with web development skills in HTML, CSS, and JavaScript.",
+      "ratings": {
+        "Java": [65, 55],
+        "Python": [70, 55],
+        "HTML/CSS": [60, 50],
+        "JavaScript": [55, 50]
+      }
+    },
+    "2": {
+      "description": "You are an experienced software engineer with five years of industry experience, now applying for a team lead position at a leading tech company. You have a strong track record of managing projects and leading cross-functional teams in developing innovative software solutions. Your technical expertise spans advanced programming in languages like Java, Python, and C#, and you are skilled in Agile methodologies and project management. This role is an excellent match for your leadership skills and your ambition to drive impactful projects.",
+      "ratings": {
+        "C#": [80, 70],
+        "Java": [85, 80],
+        "Python": [75, 65],
+        "UML": [90, 85]
+      }
+    }
+  }
+  
