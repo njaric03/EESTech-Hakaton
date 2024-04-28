@@ -1,0 +1,40 @@
+{
+    "categories": [
+      {
+        "category": "Problem Solving",
+        "questions": {
+          "Entry-level Software Engineer": "Can you describe a time when you had to solve a difficult problem during a project? What approach did you take, and what was the outcome?",
+          "Team Lead": "Tell me about a complex project challenge you faced as a leader. How did you navigate the problem-solving process with your team?"
+        }
+      },
+      {
+        "category": "Team Collaboration",
+        "questions": {
+          "Entry-level Software Engineer": "Share an experience where you had to collaborate with others who had different skill sets or perspectives from yours. How did you ensure effective communication and teamwork?",
+          "Team Lead": "Describe a situation where you had to manage a conflict within your team. What strategies did you use to foster a collaborative environment?"
+        }
+      },
+      {
+        "category": "Adaptability",
+        "questions": {
+          "Entry-level Software Engineer": "Recall a time when you had to learn a new tool or technology quickly for a project. How did you manage the learning curve?",
+          "Team Lead": "As a leader, how have you handled a sudden change in project direction or technology? What steps did you take to realign your team's focus and ensure continuity?"
+        }
+      },
+      {
+        "category": "Time Management",
+        "questions": {
+          "Entry-level Software Engineer": "How do you prioritize your tasks in a project with tight deadlines? Can you give an example of how you managed your workload effectively?",
+          "Team Lead": "Can you discuss a time when you had to oversee multiple projects simultaneously? What techniques did you employ to keep your team on track and the projects under control?"
+        }
+      },
+      {
+        "category": "Initiative and Innovation",
+        "questions": {
+          "Entry-level Software Engineer": "Tell me about a project where you went above and beyond the basic requirements. What motivated you, and what was the impact of your initiative?",
+          "Team Lead": "Provide an example of how you encouraged innovation within your team. What was the challenge, and what role did your leadership play in fostering creativity?"
+        }
+      }
+    ]
+  }
+  
