@@ -1,9 +1,10 @@
 from model.llama import LlamaPrompter
-import re
+import re, json
 
 class LlamaResponseParser():
     def __init__(self):
         self.llama_model = LlamaPrompter()
+        self.evaluation_scores: list[int] = []
 
     """Class to parse the request sent by the client to the server."""
     def post_to_llama(self, question: str, answer: str):
@@ -17,8 +18,7 @@ class LlamaResponseParser():
         prompt_to_ask = LlamaPrompter.format_prompt(question=question, answer=answer)
         return self.llama_model.ask_llama(prompt=prompt_to_ask)
 
-    @staticmethod
-    def parse_evaluation_response(response: str):
+    def parse_evaluation_response(self, response: str):
         """
         Parse the response by finding the overall evaluation score and pros and cons of the interviewee's answer
 
@@ -53,7 +53,10 @@ class LlamaResponseParser():
         """
         pat = re.compile("([0-9]{1,3}) out of 100")
         match = re.search(pat, response)
-        evaluation = match.group(1)
+        if match:
+            evaluation = match.group(1)
+        else:
+            evaluation = -1
 
         strengths_pattern = r'Strengths:(.*?)(?=Weaknesses:|$)'
         weaknesses_pattern = r'Weaknesses:(.*)'
@@ -83,7 +86,33 @@ class LlamaResponseParser():
             "cons": weaknesses
         }
 
+        self.evaluation_scores.append(int(evaluation))
+
         return pros_and_cons
+
+    def get_average_score(self, id):
+        """
+        Get the average evaluation score of all the evaluations parsed by the LlamaResponseParser
+
+        Returns:
+            float: The average evaluation score
+        """
+        if len(self.evaluation_scores) == 0:
+            return -1
+        worst_score = min(self.evaluation_scores)
+        if worst_score < 50:
+            return -1
+        with open('scenarios.json', 'r') as file:
+            data = json.load(file)
+        data = data[str(id)]
+        weights = [100, 100, 100, 100, 100]
+        for rating in data['ratings']:
+            candidate_rating, expected_rating = data['ratings'][rating]
+            self.evaluation_scores.append(candidate_rating)
+            weights.append(expected_rating)
+        average_score = int(sum([real * exp for real, exp in zip(self.evaluation_scores, weights)]) / sum(weights))
+        self.evaluation_scores = []
+        return average_score
 
 
 if __name__ == "__main__":
